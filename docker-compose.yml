@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  laravel-server:
+    container_name: laravel-server
+    image: laravel-server:1.0
+    ports:
+      - '8080:8080'
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    volumes:
+      - ./:/var/www
+
+  laravel-docker:
+    container_name: laravel-docker
+    image: laravel-docker:1.0
+    build:
+      context: ./
+      dockerfile: app.dockerfile
+    volumes:
+      - ./:/var/www
